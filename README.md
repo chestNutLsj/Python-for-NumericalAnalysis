@@ -1,12 +1,12 @@
 <!--
- * @Descripttion: 
- * @Version: 1.0
- * @Author: ZhangHongYu
- * @Date: 2021-09-19 19:53:53
- * @LastEditors: ZhangHongYu
- * @LastEditTime: 2022-07-02 19:33:57
+ * @Author: Lee Sen.J
+ * @Date: 2024-09-11 11:51:04
+ * @LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
+ * @LastEditTime: 2024-10-23 17:47:04
+ * @FilePath: \Python-for-NumericalAnalysis\README.md
+ * @Description: 
+ * 
 -->
-
 <p align="center">
 
 <img src="pic/numericalanalysis_cover.jpeg" width="300" height="400">

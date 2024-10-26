@@ -14,6 +14,7 @@ __pycache__/
 
 # IDE - VSCode
 .vscode/
+.idea/
 
 # OS generated files
 .DS_Store

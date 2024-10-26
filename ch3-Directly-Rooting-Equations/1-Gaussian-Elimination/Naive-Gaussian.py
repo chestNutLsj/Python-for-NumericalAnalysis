@@ -1,22 +1,12 @@
-"""
-Author: chestNutLsj lisj24@mails.tsinghua.edu.cn
+'''
+Author: Lee Sen.J
 Date: 2024-09-11 11:51:04
 LastEditors: chestNutLsj lisj24@mails.tsinghua.edu.cn
-LastEditTime: 2024-09-13 22:50:40
-FilePath: \Python-for-NumericalAnalysis\chapter2.方程组\2.1.高斯消元\朴素高斯消元.py
-Description: 
+LastEditTime: 2024-10-23 19:05:05
+FilePath: \Python-for-NumericalAnalysis\ch3-Rooting-Equation-Group\31-Gaussian-Elimination\Naive-Gaussian.py
+Description: 朴素法无法解决 主元为0 和 高斯消元 问题，高斯消元都考虑方非奇异阵(肯定是方的),计算复杂度为 O(n^3); 另一种算法是Gaussian-Jordan消元法,计算复杂度为 O(n^3),思路是将矩阵先化为上三角矩阵，再逆向线性变换保留主对角元素，实际计算复杂度多了50%
 
-Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
-"""
-
-"""
-Descripttion: 朴素法无法解决零主元和高斯消元问题，高斯消元都考虑方非奇异阵(肯定是方的)
-Version: 1.0
-Author: ZhangHongYu
-Date: 2021-03-08 17:26:11
-LastEditors: ZhangHongYu
-LastEditTime: 2021-05-29 16:22:24
-"""
+'''
 
 import numpy as np
 

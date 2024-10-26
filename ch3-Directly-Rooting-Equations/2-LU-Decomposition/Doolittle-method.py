@@ -13,11 +13,11 @@ eps = 1e-6
 
 
 # 消去步骤
-def LU_decomposition(
+def LU_decomposition_Gauss(
     A,
 ):
     """
-    Perform LU decomposition of matrix A into L and U where A = LU.
+    Perform LU decomposition (using Gaussian-elimination-method) of matrix A into L and U where A = LU.
     L is a lower triangular matrix and U is an upper triangular matrix.
 
     Parameters:
@@ -43,6 +43,43 @@ def LU_decomposition(
             # 对这A中这一行都进行更新
             for k in range(j, U.shape[1]):
                 U[i, k] = U[i, k] - mult_coeff * U[j, k]
+
+    return L, U
+
+
+# 利用直接三角分解法进行LU分解,这种方法更适合稀疏矩阵
+def LU_decomposition_direct(A):
+    """
+    LU_decomposition_direct is a function to perform LU decomposition using direct method.
+
+    Args:
+        A (ndarray): A square matrix to decompose.
+
+    Returns:
+        L (ndarray): Lower triangular matrix.
+        U (ndarray): Upper triangular matrix.
+    """
+    # 获取矩阵的大小
+    n = A.shape[0]
+
+    # 初始化L和U矩阵
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+
+    # 分解矩阵A为L和U
+    for i in range(n):
+        # 计算U的上三角部分
+        for k in range(i, n):
+            sum_U = sum(L[i][j] * U[j][k] for j in range(i))
+            U[i][k] = A[i][k] - sum_U
+
+        # 计算L的下三角部分
+        for k in range(i, n):
+            if i == k:
+                L[i][i] = 1  # 对角线元素设为1
+            else:
+                sum_L = sum(L[k][j] * U[j][i] for j in range(i))
+                L[k][i] = (A[k][i] - sum_L) / U[i][i]
 
     return L, U
 
@@ -129,7 +166,7 @@ if __name__ == "__main__":
     # 单纯的LU分解过程不会对b有影响
     # 即消元与回代分离
     # 进行LU分解
-    L, U = LU_decomposition(A)
+    L, U = LU_decomposition_Gauss(A)
     print("L = ", L)
     print("U = ", U)
     # 回代得到 x
